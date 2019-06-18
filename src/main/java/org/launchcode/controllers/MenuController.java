@@ -32,7 +32,7 @@ public class MenuController {
     @RequestMapping(value = "")
     public String index(Model model) {
         model.addAttribute("title", "Menus");
-        model.addAttribute("menues", menuDao.findAll());
+        model.addAttribute("menus", menuDao.findAll());
         return "menu/index";
     }
 
@@ -55,7 +55,7 @@ public class MenuController {
         return "redirect:view/" + menu.getId();
     }
 
-    @RequestMapping(value = "view/{menuID}", method = RequestMethod.GET)
+    @RequestMapping(value = "view/{menuId}", method = RequestMethod.GET)
     public String viewMenu(Model model, @PathVariable int menuId) {
 
         Menu menu = menuDao.findOne(menuId);
@@ -91,7 +91,7 @@ public class MenuController {
         theMenu.addItem(theCheese);
         menuDao.save(theMenu);
 
-        return "redirect: menu/view" + theMenu.getId();
+        return "redirect:/menu/view/" + theMenu.getId();
     }
 
 

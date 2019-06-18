@@ -43,8 +43,12 @@ public class CategoryController {
         @ModelAttribute @Valid Category category, Errors errors){
 
         if (errors.hasErrors()) {
-            categoryDao.save(category);
+            model.addAttribute(category);
+            model.addAttribute("title", "Category");
+            return "category/add";
         }
+
+        categoryDao.save(category);
 
         return "redirect:";
 

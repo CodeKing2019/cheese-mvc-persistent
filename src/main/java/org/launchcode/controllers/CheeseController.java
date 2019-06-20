@@ -74,6 +74,10 @@ public class CheeseController {
 
         for (int cheeseId : cheeseIds) {
             cheeseDao.delete(cheeseId);
+
+//            if (errors.hasErrors()){
+//                return "redirect:";
+//            }
         }
 
         return "redirect:";
